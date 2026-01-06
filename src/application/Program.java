@@ -19,16 +19,23 @@ public class Program {
         for (Seller s : sellers){
             System.out.println(s);
         }
-        System.out.println("Test 23");
+        System.out.println("Test 3");
         sellers = sellerDao.findAll();
         for (Seller s : sellers){
             System.out.println(s);
         }
-        System.out.println("Test 23");
+        System.out.println("Test 4");
 
         Seller newSeller = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0,
                 department);
         sellerDao.insert(newSeller);
         System.out.println("Inserted! New Id: " + newSeller.getId());
+
+        System.out.println("Test 5");
+        newSeller = sellerDao.findById(1);
+        newSeller.setName("Juan");
+        sellerDao.update(newSeller);
+        System.out.println("Updated! Id: " + newSeller.getId());
+
     }
 }
